@@ -1,0 +1,142 @@
+/*app.wxss*/
+
+page {
+	background: #fafafa;
+	font-size: 32rpx;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+
+.phcolor {
+	color: #ccc;
+	font-size: 32rpx;
+}
+
+button {
+	content: "";
+	border: 0px;
+	padding: 0;
+	margin: 0;
+	line-height: 20px;
+	background: none;
+	overflow: visible;
+	box-sizing: inherit;
+	border-radius: 20rpx;
+}
+
+button::after {
+	border: none;
+}
+
+.button-hover {
+	background-color: transparent;
+}
+
+.opcity {
+	opacity: 0.5;
+}
+
+.hover {
+	background: #f7f7f9 !important;
+}
+
+.ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.one {
+	word-wrap:break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+
+.two {
+	word-wrap:break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+/*列表统一样式 */
+
+.list-item {
+	position: relative;
+}
+
+.list-item::after {
+	content: '';
+	position: absolute;
+	border-bottom: 1upx solid #eaeef1;
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	bottom: 0;
+	right: 0;
+	left: 30rpx;
+}
+
+.last::after {
+	border-bottom: 0 !important;
+}
+
+/*按钮样式*/
+
+.btn-primary {
+	width: 100%;
+	height: 90rpx;
+	line-height: 90rpx;
+	background: linear-gradient(-90deg, #5677fc, #5c8dff);
+	border-radius: 45rpx;
+	color: #fff;
+	font-size: 36rpx;
+}
+
+.btn-hover {
+	color: #d5d4d9;
+	background: linear-gradient(-90deg, #4a67d6, #4e77d9);
+}
+
+.btn-gray {
+	background: #ededed;
+	color: #999 !important;
+}
+
+.btn-gray-hover {
+	background: #d5d5d5 !important;
+	color: #898989;
+}
+
+.btn-white {
+	background: #fff;
+	color: #333 !important;
+}
+
+.tui-white-hover {
+	background: #e5e5e5 !important;
+	color: #2e2e2e !important;
+}
+
+.btn-disabled {
+	color: #fafbfc !important;
+	background: linear-gradient(-90deg, #cad8fb, #c9d3fb);
+}
+
+/* 隐藏滚动条，但依旧具备可以滚动的功能 */
+/* /deep/.uni-scroll-view::-webkit-scrollbar {
+	display: none
+} */
+
+.status_bar {
+      height: var(--status-bar-height);
+      width: 100%;
+  }
