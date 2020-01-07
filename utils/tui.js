@@ -163,7 +163,7 @@ const tui = {
 		}
 		throw new Error('mode无效，请选择有效的mode!');
 		return false;
-	}
+	},
 
 	// 判断页面是否登录 仅在微信小程序有效
 	isAuthByOtherPages: async (fn) => {

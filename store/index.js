@@ -5,7 +5,7 @@ import app from './modules/app'
 
 Vue.use(Vuex)
 
-export default new Vuex.store({
+export default new Vuex.Store({
 	modules: {
 		app
 	},
