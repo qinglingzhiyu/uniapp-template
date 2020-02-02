@@ -5,7 +5,7 @@
  * @version 1.0.0
  **/
 // #ifdef H5
-import ClipboardJS from "@/components/utils/clipboard.min.js"
+import ClipboardJS from "@/components/official/utils/clipboard.min.js"
 // #endif
 const thorui = {
 	getClipboardData: function(data, callback) {

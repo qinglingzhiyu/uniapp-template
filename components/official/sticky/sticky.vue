@@ -20,15 +20,8 @@
 			},
 			//吸顶容器距离顶部距离 px
 			stickyTop: {
-				type: [Number, String]
-					// #ifdef APP-PLUS || MP
-					,
+				type: [Number, String],
 				default: 0
-					// #endif
-					// #ifdef H5
-					,
-				default: 44
-				// #endif
 			},
 			//吸顶容器 高度 rpx
 			stickyHeight: {
@@ -69,15 +62,14 @@
 		},
 		methods: {
 			updateStickyChange() {
-				const top = this.top;
-				const height = this.height;
-				const scrollTop = this.scrollTop
+				let top = this.top;
+				let height = this.height;
+				let scrollTop = this.scrollTop
 				let stickyTop = this.stickyTop
-				// #ifdef H5
-				stickyTop = stickyTop - 44
-				stickyTop = stickyTop < 0 ? 0 : stickyTop
+				// #ifdef MP-ALIPAY
+				top = top + this.compensationTop
 				// #endif
-				this.isFixed = (scrollTop + stickyTop >= top && scrollTop + stickyTop < top + height) ? true : false
+				this.isFixed = (scrollTop + stickyTop >= top) ? true : false
 			},
 			updateScrollChange() {
 				if (this.timer) {
@@ -96,7 +88,7 @@
 								top: this.top
 							})
 						}
-					}).exec()
+					}).exec();
 				}, 0)
 			}
 		}

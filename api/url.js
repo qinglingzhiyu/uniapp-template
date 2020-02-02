@@ -3,7 +3,9 @@
  */
 
 const url = {
-	login: ''
+
+	// 首页
+	sendSms: "/v1/app/sendSms", // 发送验证码
 };
 
 export default url;

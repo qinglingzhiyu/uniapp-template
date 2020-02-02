@@ -1,6 +1,8 @@
 
 const getters = {
-	 sidebar: state => state.app.sidebar,
+	 addressDO: state => state.card.addressDO,
+	 orderItem: state => state.order.orderItem,
+	 cdkeyItem: state => state.cdkey.cdkeyItem,
 }
 
 export default getters

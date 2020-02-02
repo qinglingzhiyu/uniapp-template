@@ -1,2 +1,2 @@
-// app
-export const SIDEBAR_TYPE = 'SIDEBAR_TYPE'
+// card
+export const SET_ADDRESS = 'SET_ADDRESS'

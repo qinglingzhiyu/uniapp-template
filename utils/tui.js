@@ -1,3 +1,5 @@
+import index_api from '@/api/modules/index'
+
 const tui = {
 	// 封装toast 弹窗
 	toast: (title, duration = 2000, success = false) => {
@@ -7,6 +9,9 @@ const tui = {
 			icon: success ? 'success' : 'none'
 		})
 	},
+	
+	// 是否在微信
+	isInWeiXin: () => navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1,
 	
 	// 判断是否是不为空数组
 	isNotEmptyArray: value => value && Object.prototype.toString.call(value) == '[object Array]' && value.length > 0 ? true: false,
@@ -214,6 +219,6 @@ const tui = {
 		// #endif
 		
 		fn()
-	}
+	},
 };
 export default tui;

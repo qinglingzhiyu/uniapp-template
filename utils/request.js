@@ -1,5 +1,5 @@
-import common from '@/utils/util.js'
-import tui from '@/utils/tui.js'
+import common from '@/utils/common'
+import tui from '@/utils/tui'
 
 const contentTypeMap = {
 	GET: 'application/x-www-form-urlencoded',
@@ -7,51 +7,45 @@ const contentTypeMap = {
 }
 
 // 获取本地的token 
-const getToken = () => uni.getStorageSync("token")
+const getToken = () => uni.getStorageSync("token") || ''
 
 // 接口请求
-const request = ({url = '', postData, method = 'GET', hideLoading = false}) => {
+const request = ({url = '', postData = {}, method = 'GET', hideLoading = false, isSpecJson = false, isToken = false}) => {
 	if (!hideLoading) {
 		uni.showLoading({
 			mask: true,
 			title: '请稍候...'
 		})
 	}
-	
 	return new Promise ((resolve, reject) => {
 		uni.request({
 			url: `${common.interface}${url}`,
 			data: postData,
 			header: {
-				'content-type': contentTypeMap[method.toLocaleUpperCase()],
-				'Authorization': getToken(),
+				'content-type': isSpecJson ? 'application/x-www-form-urlencoded' : contentTypeMap[method.toLocaleUpperCase()],
+				'Authorization': isToken ? getToken() : '',
 				// #ifdef APP-PLUS
-				'loginType': 'APP'
+				'loginType': 'APP',
 				// #endif
 				// #ifdef MP-WEIXIN
-				'loginType': 'MP_WECHAT'
+				'loginType': 'MP_WECHAT',
 				// #endif
 				// #ifdef MP-ALIPAY
-				'loginType': 'MP_ALIPAY'
+				'loginType': 'MP_ALIPAY',
 				// #endif
 				// #ifdef MP-BAIDU
-				'loginType': 'MP_BAIDU'
+				'loginType': 'MP_BAIDU',
 				// #endif
 				// #ifdef MP-QQ
-				'loginType': 'MP_QQ'
+				'loginType': 'MP_QQ',
 				// #endif
 				// #ifdef H5
-				'loginType': 'H5'
+				'loginType': 'H5',
 				// #endif
 			},
 			method, //'GET','POST'
 			dataType: 'json',
 			success: (res) => {
-				if (res.statusCode === 403) {
-					return uni.reLaunch({
-						url: "/pages/login/login"
-					})
-				}
 				resolve(res.data)
 			},
 			fail: (err) => {
@@ -97,6 +91,6 @@ const uploadFile = src => {
 			}
 		})
 	})
-},
+}
 
 export { request,  uploadFile }

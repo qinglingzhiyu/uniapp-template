@@ -15,4 +15,6 @@
 <style>
 	/*每个页面公共css */
 	@import "./common/app.css";
+	@import "./common/quill.snow.css";
+	@import "./common/animate.css";
 </style>

@@ -20,7 +20,7 @@
 			//图片地址，没有则不显示
 			imgUrl: {
 				type: String,
-				default: ""
+				default: "https://qiniu.1chex.com/8e216a5d-7dbd-4a96-84ae-19398d11cc13.png?e=3155179313586&token=aW1VHuq3y2Xr5-kypNWSzT-2rr8frO-HB_103tWL:Y13kEnM6g9Li5luZKxhmrBNiZ3I="
 			},
 			//图片宽度
 			imgWidth: {
