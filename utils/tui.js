@@ -1,5 +1,3 @@
-import index_api from '@/api/modules/index'
-
 const tui = {
 	// 封装toast 弹窗
 	toast: (title, duration = 2000, success = false) => {
